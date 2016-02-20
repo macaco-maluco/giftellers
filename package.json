@@ -24,10 +24,16 @@
   },
   "homepage": "https://github.com/staticshowdown/ss16-macaco-frito#readme",
   "dependencies": {
-    "firebase": "^2.4.1"
+    "firebase": "^2.4.1",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "uuid": "^2.0.1"
   },
   "devDependencies": {
     "react": "^0.14.7",
     "sagui": "^2.6.3"
+  },
+  "sagui": {
+    "pages": ["index", "big-screen", "player"]
   }
 }
