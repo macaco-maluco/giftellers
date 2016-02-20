@@ -15,7 +15,7 @@ export default React.createClass({
 
   render () {
     return (
-      <Card className='player-join' style={{minWidth: '25%', textAlign: 'center', zoom: 1.5}}>
+      <Card className='player-join' style={{minWidth: '25%', textAlign: 'center'}}>
         <CardText>
           <TextField ref='gameId' hintText='Game ID'/><br/>
           <RaisedButton label='Join' primary onClick={this.handleJoin}/>
