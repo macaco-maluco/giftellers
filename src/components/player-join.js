@@ -6,8 +6,6 @@ import RaisedButton from 'material-ui/lib/raised-button'
 import Card from 'material-ui/lib/card/card'
 import CardText from 'material-ui/lib/card/card-text'
 
-import './player-join.scss'
-
 export default React.createClass({
   propTypes: {
     onJoin: PropTypes.func
