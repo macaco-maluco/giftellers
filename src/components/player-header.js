@@ -3,7 +3,8 @@ import RaisedButton from 'material-ui/lib/raised-button'
 
 export default React.createClass({
   propTypes: {
-    player: PropTypes.object
+    player: PropTypes.object,
+    onClickNextStep: PropTypes.func
   },
 
   render () {
@@ -17,14 +18,31 @@ export default React.createClass({
           My color
         </span>
         {
-          this.props.player.isLeader &&
+          this.props.player.leader &&
             <RaisedButton
               style={{ float: 'right', marginTop: '14px' }}
-              label='Start round'
+              label={stepLabel(this.props.player.leader.step)}
               primary
+              onClick={this.props.onClickNextStep}
             />
         }
       </div>
     )
   }
 })
+
+function stepLabel (step) {
+  switch (step % 4) {
+    case 0:
+      return 'Start Round'
+
+    case 1:
+      return 'Show story'
+
+    case 2:
+      return 'Show cards'
+
+    case 3:
+      return 'Finish round'
+  }
+}

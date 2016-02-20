@@ -13,6 +13,8 @@ export default class GameLogic {
     this.leaderId = null
     this.cards = shuffle(gifs)
     this.colors = shuffle(colors)
+    this.playerSequence = []
+    this.storyTellerIndex = 0
   }
 
   create () {
@@ -58,6 +60,9 @@ function bindListeners () {
 function onPlayersAdded (snapshot) {
   const player = snapshot.val()
 
+  this.playerSequence.push(player.id)
+  this.playerSequence = shuffle(this.playerSequence)
+
   if (!this.leaderId) {
     saveLeader.call(this, player)
   }
@@ -73,13 +78,18 @@ function onPlayersAdded (snapshot) {
 
 function saveLeader (player) {
   this.leaderId = player.id
+
   this.firebase
     .child(`games/${this.gameId}/leaderId`)
     .set(player.id)
 
   this.firebase
-    .child(`games/${this.gameId}/players/${player.id}/isLeader`)
-    .set(true)
+    .child(`games/${this.gameId}/players/${player.id}/leader`)
+    .set({ step: 0 })
+
+  this.firebase
+    .child(`games/${this.gameId}/players/${player.id}/leader`)
+    .on('child_changed', onNextGameStep.bind(this))
 }
 
 function drawCards () {
@@ -90,4 +100,36 @@ function drawCards () {
   }
 
   return hand
+}
+
+function onNextGameStep (snapshot) {
+  const step = snapshot.val()
+
+  switch (step % 4) {
+    case 0:
+      return step !== 0 && calculateScore.call(this)
+
+    case 1:
+      return chooseNextStoryTellerIndex.call(this)
+  }
+}
+
+function calculateScore () {
+  // body...
+}
+
+function chooseNextStoryTellerIndex () {
+  const previousStoryTeller = this.playerSequence[this.storyTellerIndex]
+
+  this.storyTellerIndex = (this.storyTellerIndex + 1) % this.playerSequence.length
+
+  const newStoryTeller = this.playerSequence[this.storyTellerIndex]
+
+  this.firebase
+    .child(`games/${this.gameId}/players/${previousStoryTeller}/isStoryTeller`)
+    .set(false)
+
+  this.firebase
+    .child(`games/${this.gameId}/players/${newStoryTeller}/isStoryTeller`)
+    .set(true)
 }

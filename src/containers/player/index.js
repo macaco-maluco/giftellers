@@ -21,7 +21,11 @@ export default React.createClass({
       <div className='player-screen'>
         {
           this.state.game.id
-            ? <PlayerGame playerId={this.state.playerId} game={this.state.game}/>
+            ? <PlayerGame
+                playerId={this.state.playerId}
+                game={this.state.game}
+                onClickNextStep={this.handleClickNextStep}
+              />
             : <PlayerJoin onJoin={this.handleJoin}/>
         }
       </div>
@@ -44,5 +48,20 @@ export default React.createClass({
         playerId: playerId,
         game: snapshot.val()
       }))
+  },
+
+  handleClickNextStep () {
+    this.props.firebase
+      .child(`games/${this.state.game.id}/players/${this.state.playerId}/leader/step`)
+      .transaction(
+        (currentValue) => {
+          return (currentValue || 0) + 1
+        },
+        (err, committed, snapshot) => {
+          if (err) {
+            console.error('Error going to next step', err)
+          }
+        }
+      )
   }
 })

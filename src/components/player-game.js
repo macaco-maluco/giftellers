@@ -7,7 +7,8 @@ import Loader from './loader'
 export default React.createClass({
   propTypes: {
     playerId: PropTypes.string,
-    game: PropTypes.object
+    game: PropTypes.object,
+    onClickNextStep: PropTypes.func
   },
 
   render () {
@@ -32,7 +33,7 @@ export default React.createClass({
   renderGame (player) {
     return (
       <div>
-        <PlayerHead player={player} />
+        <PlayerHead player={player} onClickNextStep={this.props.onClickNextStep}/>
         <PlayerHand hand={player.hand || []} />
       </div>
     )
