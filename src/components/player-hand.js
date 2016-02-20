@@ -46,7 +46,7 @@ export default React.createClass({
         <div key={card.url} className='hand-card'>
           <Card style={CARD_STYLE}>
             <CardMedia>
-              <video src={card.mp4} autoPlay loop/>
+              <img src={card.url} autoPlay loop/>
             </CardMedia>
           </Card>
         </div>
