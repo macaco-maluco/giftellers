@@ -14,12 +14,6 @@ const CARD_STYLE = {
   margin: '0 20px 20px 20px'
 }
 
-const ARROW_STYLE = {
-  fill: 'white',
-  width: '15vh',
-  height: '15vh'
-}
-
 export default React.createClass({
   propTypes: {
     hand: PropTypes.array
