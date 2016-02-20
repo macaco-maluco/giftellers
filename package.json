@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run sagui:test",
+    "sagui:test": "sagui test",
+    "sagui:test-watch": "sagui test --watch",
+    "sagui:develop": "sagui develop",
+    "sagui:build": "sagui build",
+    "sagui:dist": "sagui dist",
+    "start": "npm run sagui:develop"
   },
   "repository": {
     "type": "git",
@@ -16,5 +22,12 @@
   "bugs": {
     "url": "https://github.com/staticshowdown/ss16-macaco-frito/issues"
   },
-  "homepage": "https://github.com/staticshowdown/ss16-macaco-frito#readme"
+  "homepage": "https://github.com/staticshowdown/ss16-macaco-frito#readme",
+  "dependencies": {
+    "firebase": "^2.4.1"
+  },
+  "devDependencies": {
+    "react": "^0.14.7",
+    "sagui": "^2.6.3"
+  }
 }
