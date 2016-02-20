@@ -5,6 +5,7 @@ export default class GameLogic {
   constructor (firebase) {
     this.firebase = firebase
     this.gameId = null
+    this.leaderId = null
   }
 
   create () {
@@ -24,6 +25,7 @@ export default class GameLogic {
                 .child('games').child(this.gameId)
                 .set({ id: this.gameId, status: 'waiting', players: {} })
 
+              bindListeners.call(this)
               resolve(this.gameId)
             } else {
               reject(err)
@@ -34,8 +36,27 @@ export default class GameLogic {
   }
 
   onChange (callback) {
-    this.firebase
-      .child(`games/${this.gameId}`)
-      .on('value', snapshot => callback(snapshot.val()))
+    const node = this.firebase.child(`games/${this.gameId}`)
+    node.on('value', snapshot => callback(snapshot.val()))
+    node.on('child_changed', snapshot => callback(snapshot.val()))
   }
+}
+
+function bindListeners () {
+  this.firebase
+    .child(`games/${this.gameId}/players`)
+    .on('child_added', onPlayersAdded.bind(this))
+}
+
+function onPlayersAdded (snapshot) {
+  if (!this.leaderId) {
+    saveLeader.apply(this, [snapshot.val()])
+  }
+}
+
+function saveLeader (player) {
+  this.leaderId = player.id
+  this.firebase
+    .child(`games/${this.gameId}/leaderId`)
+    .set(player.id)
 }
