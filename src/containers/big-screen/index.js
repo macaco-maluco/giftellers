@@ -3,6 +3,7 @@ import { PropTypes } from 'react'
 import uuid from 'uuid'
 import Hashids from 'hashids'
 
+import Lobby from '../../components/lobby'
 import Loader from '../../components/loader'
 
 export default React.createClass({
@@ -27,7 +28,7 @@ export default React.createClass({
       <div className='big-screen'>
         {
           this.state.game.id
-            ? <span className='game-id'>{this.state.game.id}</span>
+            ? <Lobby game={this.state.game}/>
             : <Loader/>
         }
       </div>
@@ -49,7 +50,8 @@ export default React.createClass({
         .child(gameId)
         .set({
           id: gameId,
-          status: 'waiting'
+          status: 'waiting',
+          players: {}
         })
 
       firebase

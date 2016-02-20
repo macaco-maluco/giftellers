@@ -7,13 +7,7 @@
   left: 0;
   bottom: 0;
 
-  .game-id {
-    text-align: center;
-    display: block;
-    font-size: 30vw;
-  }
-
-  .loader, .game-id {
+  .loader, .lobby {
     position: absolute;
     top: 50%;
     left: 50%;
