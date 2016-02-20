@@ -28,9 +28,7 @@ export default React.createClass({
   render () {
     return (
       <div className='player-hand'>
-
-          {this.renderCards()}
-
+        {this.renderCards()}
       </div>
     )
   },

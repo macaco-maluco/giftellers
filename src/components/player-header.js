@@ -1,5 +1,15 @@
 import React, { PropTypes } from 'react'
 import RaisedButton from 'material-ui/lib/raised-button'
+import StoryTellerStar from 'material-ui/lib/svg-icons/action/stars'
+
+const STORY_TELLER_STYLE = {
+  position: 'absolute',
+  fill: 'yellow',
+  width: '34px',
+  height: '34px',
+  top: '-10px',
+  left: '-10px'
+}
 
 export default React.createClass({
   propTypes: {
@@ -13,6 +23,12 @@ export default React.createClass({
         <span className='color'
               style={{backgroundColor: this.props.player.color}}>
           {this.props.player.id.substr(0, 3)}
+          {
+            this.props.player.isStoryTeller &&
+              <StoryTellerStar
+                className='storyTeller'
+                style={STORY_TELLER_STYLE}/>
+          }
         </span>
         <span className='label'>
           My color
