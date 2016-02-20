@@ -1,5 +1,8 @@
 import React from 'react'
 import { PropTypes } from 'react'
+import uuid from 'uuid'
+
+import PlayerGame from '../../components/player-game'
 import PlayerJoin from '../../components/player-join'
 
 export default React.createClass({
@@ -9,7 +12,6 @@ export default React.createClass({
 
   getInitialState () {
     return {
-      gameId: null,
       game: {}
     }
   },
@@ -17,12 +19,30 @@ export default React.createClass({
   render () {
     return (
       <div className='player-screen'>
-        <PlayerJoin onJoin={this.handleJoin}/>
+        {
+          this.state.game.id
+            ? <PlayerGame game={this.state.game}/>
+            : <PlayerJoin onJoin={this.handleJoin}/>
+        }
       </div>
     )
   },
 
   handleJoin (gameId) {
-    console.log(gameId)
+    const playerId = uuid()
+    const firebase = this.props.firebase
+
+    firebase
+      .child(`games/${gameId}/players/${playerId}`)
+      .set({
+        id: playerId
+      })
+
+    firebase
+      .child(`games/${gameId}`)
+      .on('value', snapshot => this.setState({
+        playerId: playerId,
+        game: snapshot.val()
+      }))
   }
 })
