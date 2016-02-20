@@ -18,7 +18,7 @@ export default React.createClass({
       <div>
         <input ref='gameId'/>
         <button onClick={this.handleJoin}>Join</button>
-        <h2>{this.state.game.counter}</h2>
+        <h2>{this.state.game.status}</h2>
       </div>
     )
   },
