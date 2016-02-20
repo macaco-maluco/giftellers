@@ -6,7 +6,6 @@ export default React.createClass({
   },
 
   render () {
-    console.log(this.props.game)
     return (
       <div className='lobby'>
         <span className='game-id'>{this.props.game.id}</span>
