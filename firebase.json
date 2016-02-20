@@ -1,0 +1,9 @@
+{
+  "firebase": "ss16-macaco-frito",
+  "public": "dist",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

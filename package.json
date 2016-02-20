@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "clean": "rm -rf dist/",
+    "deploy": "npm run clean && npm run sagui:dist && firebase deploy",
     "test": "npm run sagui:test",
     "sagui:test": "sagui test",
     "sagui:test-watch": "sagui test --watch",
@@ -34,6 +36,7 @@
     "uuid": "^2.0.1"
   },
   "devDependencies": {
+    "firebase-tools": "^2.2.1",
     "react": "^0.14.7",
     "sagui": "^2.6.4"
   },
