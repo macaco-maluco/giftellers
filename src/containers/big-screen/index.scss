@@ -1,0 +1,22 @@
+.big-screen {
+  background: #1abc9c;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+
+  .game-id {
+    text-align: center;
+    display: block;
+    font-size: 30vw;
+  }
+
+  .loader, .game-id {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50% ,0);
+  }
+}

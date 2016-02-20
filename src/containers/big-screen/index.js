@@ -3,6 +3,8 @@ import { PropTypes } from 'react'
 import uuid from 'uuid'
 import Hashids from 'hashids'
 
+import Loader from '../../components/loader'
+
 export default React.createClass({
   propTypes: {
     firebase: PropTypes.object
@@ -22,9 +24,12 @@ export default React.createClass({
 
   render () {
     return (
-      <div>
-        <h1>Big screen</h1>
-        <h2>{this.state.game.id}</h2>
+      <div className='big-screen'>
+        {
+          this.state.game.id
+            ? <span className='game-id'>{this.state.game.id}</span>
+            : <Loader/>
+        }
       </div>
     )
   },
