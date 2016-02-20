@@ -1,6 +1,7 @@
 import uuid from 'uuid'
 import Hashids from 'hashids'
 import gifs from '../data/gif-season-1'
+import colors from '../data/colors-season-1'
 import shuffle from 'lodash/shuffle'
 
 const HAND_SIZE = 5
@@ -11,6 +12,7 @@ export default class GameLogic {
     this.gameId = null
     this.leaderId = null
     this.cards = shuffle(gifs)
+    this.colors = shuffle(colors)
   }
 
   create () {
@@ -63,6 +65,10 @@ function onPlayersAdded (snapshot) {
   this.firebase
     .child(`games/${this.gameId}/players/${player.id}/hand`)
     .set(drawCards.call(this))
+
+  this.firebase
+    .child(`games/${this.gameId}/players/${player.id}/color`)
+    .set(this.colors.shift())
 }
 
 function saveLeader (player) {

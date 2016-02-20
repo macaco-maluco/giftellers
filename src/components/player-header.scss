@@ -1,0 +1,19 @@
+.player-header {
+  padding: 10px;
+  color: white;
+
+  .color, .label {
+    display: inline-block;
+  }
+
+  .color {
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    border: 1px solid white;
+    text-align: center;
+    line-height: 10vw;
+    margin-right: 10px;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.6);
+  }
+}
