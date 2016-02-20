@@ -15,8 +15,8 @@ const CARD_STYLE = {
 
 const ARROW_STYLE = {
   fill: 'white',
-  width: '15vw',
-  height: '15vw'
+  width: '15vh',
+  height: '15vh'
 }
 
 export default React.createClass({
