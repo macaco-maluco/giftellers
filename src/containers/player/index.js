@@ -21,7 +21,7 @@ export default React.createClass({
       <div className='player-screen'>
         {
           this.state.game.id
-            ? <PlayerGame game={this.state.game}/>
+            ? <PlayerGame playerId={this.state.playerId} game={this.state.game}/>
             : <PlayerJoin onJoin={this.handleJoin}/>
         }
       </div>

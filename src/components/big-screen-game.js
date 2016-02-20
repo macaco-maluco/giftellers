@@ -1,14 +1,16 @@
 import React, { PropTypes } from 'react'
 
+import Lobby from './lobby'
+
 export default React.createClass({
   propTypes: {
-    playerId: PropTypes.string,
     game: PropTypes.object
   },
 
   render () {
-    return (
-      <span>{this.props.game.status}</span>
-    )
+    switch (this.props.game.status) {
+      case 'waiting':
+        return <Lobby game={this.props.game}/>
+    }
   }
 })
