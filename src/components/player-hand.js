@@ -11,7 +11,7 @@ import RaisedButton from 'material-ui/lib/raised-button'
 const CARD_STYLE = {
   textAlign: 'center',
   padding: '20px',
-  margin: '20px'
+  margin: '0 20px 20px 20px'
 }
 
 const ARROW_STYLE = {
@@ -57,7 +57,7 @@ export default React.createClass({
             <CardMedia overlay={overlay}>
               <img src={card.url} autoPlay loop/>
             </CardMedia>
-            <CardActions style={{ padding: '8px 0' }}>
+            <CardActions style={{ padding: '8px 0 0 0' }}>
               <RaisedButton
                 label='Select'
                 secondary
