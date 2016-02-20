@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import PlayerHand from './player-hand'
 
 export default React.createClass({
   propTypes: {
@@ -8,7 +9,10 @@ export default React.createClass({
 
   render () {
     return (
-      <span>{this.props.game.status}</span>
+      <div>
+        <span>{this.props.game.status}</span>
+        <PlayerHand hand={this.props.game.players[this.props.playerId].hand || []}/>
+      </div>
     )
   }
 })
