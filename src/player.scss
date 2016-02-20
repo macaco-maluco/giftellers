@@ -1,3 +1,8 @@
-#ss16-macaco-frito {
+@import 'normalize.css/normalize';
+@import './components/loader.scss';
+@import './containers/player/index.scss';
 
+.player-screen {
+  min-width: 100%;
+  min-height: 100%;
 }

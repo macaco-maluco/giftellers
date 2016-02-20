@@ -1,5 +1,6 @@
 import React from 'react'
 import { PropTypes } from 'react'
+import PlayerJoin from '../../components/player-join'
 
 export default React.createClass({
   propTypes: {
@@ -15,22 +16,13 @@ export default React.createClass({
 
   render () {
     return (
-      <div>
-        <input ref='gameId'/>
-        <button onClick={this.handleJoin}>Join</button>
-        <h2>{this.state.game.status}</h2>
+      <div className='player-screen'>
+        <PlayerJoin onJoin={this.handleJoin}/>
       </div>
     )
   },
 
-  handleJoin () {
-    const firebase = this.props.firebase
-    const gameId = this.refs.gameId.value
-
-    firebase.child(`games/${gameId}`).on('value', snapshot => {
-      this.setState({
-        game: snapshot.val()
-      })
-    })
+  handleJoin (gameId) {
+    console.log(gameId)
   }
 })
