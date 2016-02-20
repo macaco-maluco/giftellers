@@ -76,6 +76,10 @@ function saveLeader (player) {
   this.firebase
     .child(`games/${this.gameId}/leaderId`)
     .set(player.id)
+
+  this.firebase
+    .child(`games/${this.gameId}/players/${player.id}/isLeader`)
+    .set(true)
 }
 
 function drawCards () {

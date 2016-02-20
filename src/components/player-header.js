@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import RaisedButton from 'material-ui/lib/raised-button'
 
 export default React.createClass({
   propTypes: {
@@ -15,6 +16,14 @@ export default React.createClass({
         <span className='label'>
           My color
         </span>
+        {
+          this.props.player.isLeader &&
+            <RaisedButton
+              style={{ float: 'right', marginTop: '14px' }}
+              label='Start round'
+              primary
+            />
+        }
       </div>
     )
   }
