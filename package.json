@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf dist/",
-    "deploy": "npm run clean && npm run sagui:dist && firebase deploy",
+    "deploy": "NODE_ENV=production && npm run clean && npm run sagui:dist && firebase deploy",
     "test": "npm run sagui:test",
     "sagui:test": "sagui test",
     "sagui:test-watch": "sagui test --watch",
@@ -38,7 +38,7 @@
   "devDependencies": {
     "firebase-tools": "^2.2.1",
     "react": "^0.14.7",
-    "sagui": "^2.6.5"
+    "sagui": "^2.7.0"
   },
   "sagui": {
     "pages": [
