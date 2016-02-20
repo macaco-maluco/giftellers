@@ -1,0 +1,1 @@
+# Static Showdown awesome entry

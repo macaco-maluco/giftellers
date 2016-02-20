@@ -1,0 +1,20 @@
+{
+  "name": "ss16-macaco-frito",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/staticshowdown/ss16-macaco-frito.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/staticshowdown/ss16-macaco-frito/issues"
+  },
+  "homepage": "https://github.com/staticshowdown/ss16-macaco-frito#readme"
+}
