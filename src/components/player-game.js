@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react'
+
 import PlayerHead from './player-header'
 import PlayerHand from './player-hand'
+import Loader from './loader'
 
 export default React.createClass({
   propTypes: {
@@ -24,7 +26,7 @@ export default React.createClass({
   },
 
   renderLoader () {
-    return <span />
+    return <Loader />
   },
 
   renderGame (player) {
