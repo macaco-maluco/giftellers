@@ -1,0 +1,32 @@
+.player-hand {
+  button {
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    outline-width: 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .arrow-left, .arrow-right {
+    position: absolute;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+    margin-left: -2vw;
+
+    svg {
+      stroke: #2980b9;
+      stroke-width: 0.5;
+    }
+  }
+
+  .arrow-left {
+    left: 0;
+  }
+
+  .arrow-right {
+    right: 0;
+  }
+}

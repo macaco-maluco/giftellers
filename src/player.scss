@@ -1,7 +1,12 @@
 @import 'normalize.css/normalize';
 @import './components/loader.scss';
 @import './components/player-join.scss';
+@import './components/player-hand.scss';
 @import './containers/player/index.scss';
+
+* {
+  box-sizing: border-box;
+}
 
 .player-screen {
   min-width: 100%;
