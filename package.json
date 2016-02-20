@@ -38,7 +38,6 @@
   },
   "devDependencies": {
     "firebase-tools": "^2.2.1",
-    "react": "^0.14.7",
     "sagui": "^2.7.0"
   },
   "sagui": {
