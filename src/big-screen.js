@@ -2,7 +2,7 @@ import { render } from 'react-dom'
 import React from 'react'
 import Firebase from 'firebase'
 
-import BigScreen from './components/big-screen'
+import BigScreen from './containers/big-screen'
 
 const firebase = new Firebase('https://ss16-macaco-frito.firebaseio.com/')
 

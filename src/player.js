@@ -2,7 +2,7 @@ import { render } from 'react-dom'
 import React from 'react'
 import Firebase from 'firebase'
 
-import Player from './components/player'
+import Player from './containers/player'
 
 const firebase = new Firebase('https://ss16-macaco-frito.firebaseio.com/')
 
