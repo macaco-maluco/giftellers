@@ -19,7 +19,7 @@ export default React.createClass({
     hand: PropTypes.array,
     selectedCard: PropTypes.string,
     onCardSelected: PropTypes.func,
-    disabled: PropTypes.boolean
+    disabled: PropTypes.bool
   },
 
   render () {
