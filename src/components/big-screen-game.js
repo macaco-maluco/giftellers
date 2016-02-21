@@ -27,7 +27,7 @@ export default React.createClass({
       case 1:
         return this.renderStoryTeller(players)
       case 2:
-        return <span>Make your choice</span>
+        return this.renderCardSelection(players)
       case 3:
         return this.renderSelectedCards(this.props.game.shuffledVotingCards)
     }
@@ -53,6 +53,30 @@ export default React.createClass({
           </p>
           <p>
             please say it out loud
+          </p>
+          <p>
+            (without showing the card to the other players)
+          </p>
+        </div>
+      </div>
+    )
+  },
+
+  renderCardSelection (players) {
+    const listeners = Object
+      .keys(players)
+      .map(id => players[id])
+      .filter(player => !player.isStoryTeller)
+
+    return (
+      <div className='card-selection'>
+        <h1>Players</h1>
+        {
+          listeners.map(listener => <Avatar key={listener.id} player={listener} />)
+        }
+        <div className='guidance'>
+          <p>
+            Select from among your own cards the one that best matches the sentence given by the storyteller
           </p>
           <p>
             (without showing the card to the other players)
