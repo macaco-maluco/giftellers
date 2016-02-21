@@ -53,7 +53,7 @@ function stepLabel (step) {
       return 'Start Round'
 
     case 1:
-      return 'Tell your story'
+      return 'Tell story'
 
     case 2:
       return 'Show cards'
