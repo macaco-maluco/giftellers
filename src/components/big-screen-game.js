@@ -29,7 +29,7 @@ export default React.createClass({
       case 2:
         return <span>Make your choice</span>
       case 3:
-        return this.renderSelectedCards(this.props.shuffledVotingCards)
+        return this.renderSelectedCards(this.props.game.shuffledVotingCards)
     }
   },
 
@@ -51,7 +51,7 @@ export default React.createClass({
     )
   },
 
-  renderSelectedCards (cards) {
+  renderSelectedCards (cards = []) {
     return (
       <GridList className='selected-cards' cols={4} cellHeight={200}>
         {
