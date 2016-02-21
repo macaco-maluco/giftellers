@@ -3,6 +3,7 @@ import GridList from 'material-ui/lib/grid-list/grid-list'
 import GridTile from 'material-ui/lib/grid-list/grid-tile'
 
 import Lobby from './lobby'
+import Score from './score'
 import Avatar from './avatar'
 
 export default React.createClass({
@@ -22,7 +23,7 @@ export default React.createClass({
       case 0:
         return waitingForPlayers
           ? <Lobby game={this.props.game}/>
-          : this.renderScore()
+          : <Score game={this.props.game}/>
       case 1:
         return this.renderStoryTeller(players)
       case 2:
@@ -30,10 +31,6 @@ export default React.createClass({
       case 3:
         return this.renderSelectedCards(players)
     }
-  },
-
-  renderScore () {
-    return <span>score</span>
   },
 
   renderStoryTeller (players) {

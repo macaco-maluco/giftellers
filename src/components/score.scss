@@ -1,0 +1,60 @@
+.score {
+  .board {
+    position: relative;
+
+    .avatar {
+      margin: 0;
+      left: -0.7vw;
+      margin-bottom: 0.4vw;
+
+      &:first-child {
+        margin-top: 1vw;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .score-number {
+    &:before {
+      content: attr(data-number);
+      display: block;
+      text-align: center;
+      top: 1vw;
+      line-height: 3vw;
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 1vw;
+
+    &:after {
+      content: " ";
+      display: block;
+      clear: both;
+    }
+  }
+
+  .start:before {
+    content: "Start"
+  }
+
+  .end:before {
+    content: "End"
+  }
+
+  li {
+    float: left;
+    background-color: white;
+    color: #333;
+
+    margin: 0 9px;
+    border-radius: 50%;
+    width: 3vw;
+    height: 3vw;
+    z-index: 1;
+  }
+}
