@@ -43,7 +43,7 @@ export default React.createClass({
         <div key={card.url} className='hand-card'>
           <Card style={CARD_STYLE}>
             <CardMedia overlay={overlay}>
-              <img src={card.url} autoPlay loop/>
+              <img src={card.url} />
             </CardMedia>
             <CardActions style={{ padding: '8px 0 0 0' }}>
               <RaisedButton
