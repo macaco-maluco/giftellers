@@ -1,3 +1,5 @@
+import 'babel-core/browser-polyfill'
+
 import calculateScore from './calculate-score'
 
 /**

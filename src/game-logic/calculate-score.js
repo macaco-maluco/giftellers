@@ -1,5 +1,3 @@
-import 'babel-core/browser-polyfill'
-
 export default function calculateScore (game) {
   const { shuffledVotingCards, players } = game
   const playersArray = Object.keys(players).map(id => players[id])
