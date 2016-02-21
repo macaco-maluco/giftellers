@@ -1,12 +1,19 @@
-# Static Showdown awesome entry
+# Gifteller
 
-```sh
-# Home
-bit.ly/emogifgame
+A couch card-game to be played with friends.
 
-# TV
-bit.ly/emogiftv
+## Development
 
-# Player
-bit.ly/emogifme
+```
+npm start
+```
+
+```
+npm test
+```
+
+## Deployment
+
+```
+npm run deploy
 ```
