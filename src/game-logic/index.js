@@ -49,7 +49,6 @@ export default class GameLogic {
   onChange (callback) {
     const node = this.firebase.child(`games/${this.gameId}`)
     node.on('value', snapshot => callback(snapshot.val()))
-    node.on('child_changed', snapshot => callback(snapshot.val()))
   }
 }
 
@@ -122,7 +121,7 @@ function onNextGameStep (snapshot) {
 function shuffleVotingCards () {
   this.firebase
     .child(`games/${this.gameId}/players`)
-    .on('value', snapshot => {
+    .once('value', snapshot => {
       const players = snapshot.val()
 
       const shuffledVotingCards = shuffle(
@@ -140,7 +139,7 @@ function shuffleVotingCards () {
 function updateScore () {
   this.firebase
     .child(`games/${this.gameId}`)
-    .on('value', snapshot => {
+    .once('value', snapshot => {
       const game = snapshot.val()
 
       const gameWithScore = calculateScore(game)
