@@ -8,6 +8,9 @@ export default function drawNextCards (cards, game) {
     // unselect it
     delete player.selectedCard
 
+    // clear previous voted card
+    delete player.votedCardIndex
+
     // add a new card from the deck
     player.hand.push(cards.shift())
   })

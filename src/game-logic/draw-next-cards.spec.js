@@ -23,6 +23,7 @@ describe('draw next cards', () => {
         'player-1': {
           id: 'player-1',
           selectedCard: 'card-1',
+          votedCardIndex: 2,
           hand: [
             { url: 'card-1' },
             { url: 'card-2' },
@@ -36,13 +37,13 @@ describe('draw next cards', () => {
         'player-2': {
           id: 'player-2',
           selectedCard: 'card-7',
+          votedCardIndex: 1,
           hand: [
             { url: 'card-5' },
             { url: 'card-6' },
             { url: 'card-7' },
             { url: 'card-8' }
-          ],
-          votedCardIndex: 3
+          ]
         }
       }
     }
@@ -51,9 +52,11 @@ describe('draw next cards', () => {
     expect(gameWithDrawnCards).toEqual(game)
 
     expect(game.players['player-1'].selectedCard).toEqual(undefined)
+    expect(game.players['player-1'].votedCardIndex).toEqual(undefined)
     expect(game.players['player-1'].hand.map(card => card.url)).toEqual(['card-2', 'card-3', 'card-4', 'card-20'])
 
     expect(game.players['player-2'].selectedCard).toEqual(undefined)
+    expect(game.players['player-2'].votedCardIndex).toEqual(undefined)
     expect(game.players['player-2'].hand.map(card => card.url)).toEqual(['card-5', 'card-6', 'card-8', 'card-21'])
 
     expect(cards).toEqual(cardsLessDrawn)
