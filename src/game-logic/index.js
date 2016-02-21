@@ -5,6 +5,7 @@ import colors from '../data/colors-season-1'
 import shuffle from 'lodash/shuffle'
 
 import calculateScore from './calculate-score'
+import drawNextCards from './draw-next-cards'
 
 const HAND_SIZE = 5
 
@@ -143,10 +144,11 @@ function updateScore () {
       const game = snapshot.val()
 
       const gameWithScore = calculateScore(game)
+      const gameWithUpdatedHands = drawNextCards(this.cards, gameWithScore)
 
       this.firebase
         .child(`games/${this.gameId}/players`)
-        .set(gameWithScore.players)
+        .set(gameWithUpdatedHands.players)
 
       this.firebase
         .child(`games/${this.gameId}/shuffledVotingCards`)
