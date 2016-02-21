@@ -15,6 +15,7 @@ export default React.createClass({
     const leaderId = this.props.game.leaderId
     const players = this.props.game.players || {}
     const leaderPlayer = players[leaderId] || {}
+    const cards = this.props.game.shuffledVotingCards
 
     const step = (leaderPlayer.leader || {step: 0}).step
     const waitingForPlayers = (step === 0)
@@ -29,7 +30,7 @@ export default React.createClass({
       case 2:
         return this.renderCardSelection(players)
       case 3:
-        return this.renderSelectedCards(this.props.game.shuffledVotingCards)
+        return this.renderSelectedCards(players, cards)
     }
   },
 
@@ -63,16 +64,13 @@ export default React.createClass({
   },
 
   renderCardSelection (players) {
-    const listeners = Object
-      .keys(players)
-      .map(id => players[id])
-      .filter(player => !player.isStoryTeller)
+    const guessers = getPlayersGuessing(players)
 
     return (
       <div className='card-selection'>
         <h1>Players</h1>
         {
-          listeners.map(listener => <Avatar key={listener.id} player={listener} />)
+          guessers.map(guesser => <Avatar key={guesser.id} player={guesser} />)
         }
         <div className='guidance'>
           <p>
@@ -86,14 +84,28 @@ export default React.createClass({
     )
   },
 
-  renderSelectedCards (cards = []) {
+  renderSelectedCards (players, cards = []) {
     return (
-      <GridList className='selected-cards' cols={4} cellHeight={200}>
-        {
-          cards
-            .map((cardUrl, i) => <VoteCard url={cardUrl} index={i} />)
-        }
-      </GridList>
+      <div className='card-voting'>
+        <div className='guidance'>
+          <p>
+            guess which picture was the storyteller's
+          </p>
+        </div>
+        <GridList className='selected-cards' cols={4} cellHeight={200}>
+          {
+            cards
+              .map((cardUrl, i) => <VoteCard key={cardUrl} url={cardUrl} index={i} />)
+          }
+        </GridList>
+      </div>
     )
   }
 })
+
+function getPlayersGuessing (players) {
+  return Object
+    .keys(players)
+    .map(id => players[id])
+    .filter(player => !player.isStoryTeller)
+}

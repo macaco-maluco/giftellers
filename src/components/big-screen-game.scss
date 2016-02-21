@@ -5,10 +5,15 @@
 }
 
 .story-teller,
-.card-selection {
+.card-selection,
+.card-voting {
   text-align: center;
 
   .guidance {
     font-size: 4vw;
   }
+}
+
+.card-voting .guidance {
+  font-size: 3vw;
 }

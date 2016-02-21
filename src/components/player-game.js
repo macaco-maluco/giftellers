@@ -1,9 +1,15 @@
 import React, { PropTypes } from 'react'
+import Card from 'material-ui/lib/card/card'
+import CardText from 'material-ui/lib/card/card-text'
 
 import PlayerHead from './player-header'
 import PlayerHand from './player-hand'
 import PlayerVote from './player-vote'
 import Loader from './loader'
+
+const CARD_STYLE = {
+  margin: '20px'
+}
 
 export default React.createClass({
   propTypes: {
@@ -76,12 +82,20 @@ export default React.createClass({
                         onCardVoted={this.props.onCardVoted}/>
         }
         {
-          player.isStoryTeller && playersVoting &&
-            <span>Wait for players to cast their votes</span>
+          player.isStoryTeller && playersChoosingCards &&
+            <Card style={CARD_STYLE}>
+              <CardText>
+                Wait for players to choose their cards
+              </CardText>
+            </Card>
         }
         {
-          player.isStoryTeller && playersChoosingCards &&
-            <span>Wait for players to choose their cards</span>
+          player.isStoryTeller && playersVoting &&
+            <Card style={CARD_STYLE}>
+              <CardText>
+                Wait for players to cast their votes
+              </CardText>
+            </Card>
         }
       </div>
     )
