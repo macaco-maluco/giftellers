@@ -30,6 +30,7 @@
   ul {
     margin: 0;
     padding: 1vw;
+    text-align: center;
 
     &:after {
       content: " ";
@@ -47,7 +48,8 @@
   }
 
   li {
-    float: left;
+    display: inline-block;
+    vertical-align: top;
     background-color: white;
     color: #333;
 
