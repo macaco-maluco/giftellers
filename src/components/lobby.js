@@ -9,6 +9,14 @@ export default React.createClass({
   render () {
     return (
       <div className='lobby'>
+        <div className='guidance'>
+          <p>
+            You will need 3 or more players. Get ready on a couch, fire up your smartphone and access:
+          </p>
+          <p>
+            http://bit.ly/giftellersme
+          </p>
+        </div>
         <span className='game-id'>{this.props.game.id}</span>
         { this.renderPlayers() }
       </div>
