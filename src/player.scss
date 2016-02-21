@@ -4,8 +4,10 @@
 @import './components/player-join.scss';
 @import './components/player-header.scss';
 @import './components/player-hand.scss';
-@import './containers/player/index.scss';
 @import './components/player-game.scss';
+@import './components/player-vote.scss';
+@import './components/vote-card.scss';
+@import './containers/player/index.scss';
 
 * {
   box-sizing: border-box;

@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 
 import PlayerHead from './player-header'
 import PlayerHand from './player-hand'
+import PlayerVote from './player-vote'
 import Loader from './loader'
 
 export default React.createClass({
@@ -9,12 +10,15 @@ export default React.createClass({
     playerId: PropTypes.string,
     game: PropTypes.object,
     onClickNextStep: PropTypes.func,
-    onCardSelected: PropTypes.func
+    onCardSelected: PropTypes.func,
+    onCardVoted: PropTypes.func
   },
 
   render () {
     const id = this.props.playerId
-    const player = this.props.game.players[id]
+    const game = this.props.game
+    const voteCards = game.shuffledVotingCards
+    const player = game.players[id]
 
     const leaderId = this.props.game.leaderId
     const players = this.props.game.players || {}
@@ -26,7 +30,7 @@ export default React.createClass({
       <div className='player-game'>
         {
           player
-            ? this.renderGame(player, step)
+            ? this.renderGame(player, step, voteCards)
             : this.renderLoader()
         }
       </div>
@@ -37,7 +41,7 @@ export default React.createClass({
     return <Loader />
   },
 
-  renderGame (player, step) {
+  renderGame (player, step, voteCards) {
     const roundStep = step % 4
     const playersChoosingCards = roundStep === 2
     const playersVoting = roundStep === 3
@@ -59,8 +63,13 @@ export default React.createClass({
             : null
         }
         {
-          !player.isStoryTeller && playersVoting &&
-            <span>Vote player</span>
+          !player.isStoryTeller &&
+            playersVoting &&
+            voteCards &&
+            voteCards.length > 0 &&
+            <PlayerVote cards={voteCards}
+                        votedCardIndex={player.votedCardIndex}
+                        onCardVoted={this.props.onCardVoted}/>
         }
         {
           player.isStoryTeller && playersVoting &&
