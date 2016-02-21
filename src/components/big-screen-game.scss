@@ -6,7 +6,8 @@
 
 .story-teller,
 .card-selection,
-.card-voting {
+.card-voting,
+.storyteller-card {
   text-align: center;
 
   .guidance {
@@ -16,4 +17,11 @@
 
 .card-voting .guidance {
   font-size: 3vw;
+}
+
+.storyteller-card {
+  .choice {
+    width: 25%;
+    display: inline-block;
+  }
 }

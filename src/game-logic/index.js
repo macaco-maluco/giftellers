@@ -107,7 +107,7 @@ function drawCards () {
 function onNextGameStep (snapshot) {
   const step = snapshot.val()
 
-  switch (step % 4) {
+  switch (step % 5) {
     case 0:
       return step !== 0 && updateScore.call(this)
 

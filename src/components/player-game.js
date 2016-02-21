@@ -48,7 +48,7 @@ export default React.createClass({
   },
 
   renderGame (player, step, voteCards) {
-    const roundStep = step % 4
+    const roundStep = step % 5
     const storyTellerSelectingCard = roundStep === 1
     const playersChoosingCards = roundStep === 2
     const playersVoting = roundStep === 3

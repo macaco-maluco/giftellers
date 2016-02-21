@@ -20,7 +20,7 @@ export default React.createClass({
     const step = (leaderPlayer.leader || {step: 0}).step
     const waitingForPlayers = (step === 0)
 
-    switch (step % 4) {
+    switch (step % 5) {
       case 0:
         return waitingForPlayers
           ? <Lobby game={this.props.game}/>
@@ -31,6 +31,8 @@ export default React.createClass({
         return this.renderCardSelection(players)
       case 3:
         return this.renderSelectedCards(players, cards)
+      case 4:
+        return this.renderStorytellerCard(players)
     }
   },
 
@@ -98,6 +100,25 @@ export default React.createClass({
               .map((cardUrl, i) => <VoteCard key={cardUrl} url={cardUrl} index={i} />)
           }
         </GridList>
+      </div>
+    )
+  },
+
+  renderStorytellerCard (players) {
+    const storyTellerId = Object
+      .keys(players)
+      .find(playerId => players[playerId].isStoryTeller)
+
+    const storyTeller = players[storyTellerId]
+
+    return (
+      <div className='storyteller-card'>
+        <div className='guidance'>
+          <p>
+            Storyteller's card
+          </p>
+        </div>
+        <img src={storyTeller.selectedCard} className='choice' />
       </div>
     )
   }

@@ -11,6 +11,8 @@
       margin: 0;
       left: -0.7vw;
       margin-bottom: 0.4vw;
+      text-shadow: none;
+      font-weight: 300;
 
       &:first-child {
         margin-top: 1vw;
@@ -29,6 +31,7 @@
       text-align: center;
       top: 1vw;
       line-height: 3vw;
+      font-weight: 300;
     }
   }
 

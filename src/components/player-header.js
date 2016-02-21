@@ -52,7 +52,7 @@ export default React.createClass({
 })
 
 function stepLabel (step) {
-  switch (step % 4) {
+  switch (step % 5) {
     case 0:
       return 'Start Round'
 
@@ -60,9 +60,12 @@ function stepLabel (step) {
       return 'Tell story'
 
     case 2:
-      return 'Show cards'
+      return 'Start voting'
 
     case 3:
+      return 'Reavel Storyteller'
+
+    case 4:
       return 'Finish round'
   }
 }
