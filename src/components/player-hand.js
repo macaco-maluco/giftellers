@@ -16,13 +16,9 @@ const CARD_STYLE = {
 
 export default React.createClass({
   propTypes: {
-    hand: PropTypes.array
-  },
-
-  getInitialState () {
-    return {
-      selected: null
-    }
+    hand: PropTypes.array,
+    selectedCard: PropTypes.string,
+    onCardSelected: PropTypes.func
   },
 
   render () {
@@ -34,12 +30,12 @@ export default React.createClass({
   },
 
   handleClick (cardUrl) {
-    this.setState({ selected: cardUrl })
+    this.props.onCardSelected(cardUrl)
   },
 
   renderCards () {
     return this.props.hand.map(card => {
-      const overlay = this.state.selected === card.url
+      const overlay = this.props.selectedCard === card.url
         ? <CardTitle title='Selected' />
         : null
 

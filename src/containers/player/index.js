@@ -25,6 +25,7 @@ export default React.createClass({
                 playerId={this.state.playerId}
                 game={this.state.game}
                 onClickNextStep={this.handleClickNextStep}
+                onCardSelected={this.handleCardSelected}
               />
             : <PlayerJoin onJoin={this.handleJoin}/>
         }
@@ -63,5 +64,11 @@ export default React.createClass({
           }
         }
       )
+  },
+
+  handleCardSelected (cardUrl) {
+    this.props.firebase
+      .child(`games/${this.state.game.id}/players/${this.state.playerId}/selectedCard`)
+      .set(cardUrl)
   }
 })
