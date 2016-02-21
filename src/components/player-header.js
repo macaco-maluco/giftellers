@@ -63,7 +63,7 @@ function stepLabel (step) {
       return 'Start voting'
 
     case 3:
-      return 'Reavel Storyteller'
+      return 'Reavel card'
 
     case 4:
       return 'Finish round'
