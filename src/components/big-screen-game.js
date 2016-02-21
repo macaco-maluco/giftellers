@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react'
+import GridList from 'material-ui/lib/grid-list/grid-list'
+import GridTile from 'material-ui/lib/grid-list/grid-tile'
 
 import Lobby from './lobby'
 import Avatar from './avatar'
@@ -59,18 +61,18 @@ export default React.createClass({
       .sort()
 
     return (
-      <div className='selected-cards'>
+      <GridList className='selected-cards' cols={4} cellHeight={200}>
         {
           cards.map((cardUrl, i) => {
             return (
-              <div key={cardUrl} className='card'>
-                <span className='number'>#{i}</span>
+              <GridTile key={cardUrl}
+                        title={<span className='title'>{`#${i}`}</span>}>
                 <img src={cardUrl} />
-              </div>
+              </GridTile>
             )
           })
         }
-      </div>
+      </GridList>
     )
   }
 })
