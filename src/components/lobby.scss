@@ -1,13 +1,21 @@
 .lobby {
   padding: 0 20px;
 
+  a {
+    text-decoration: none;
+    color: white;
+    font-weight: 300;
+  }
+
   .game-id {
     text-align: center;
     display: block;
     font-size: 17vw;
+    line-height: 14vw;
   }
 
   .status {
+    margin-top: 6vw;
     text-align: center;
 
     .avatar {

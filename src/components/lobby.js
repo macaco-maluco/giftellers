@@ -14,7 +14,9 @@ export default React.createClass({
             You will need 3 or more players. Get ready on a couch, fire up your smartphone and access:
           </p>
           <p>
-            http://bit.ly/giftellersme
+            <a href='http://bit.ly/giftellersme'>
+              http://bit.ly/giftellersme
+            </a>
           </p>
         </div>
         <span className='game-id'>{this.props.game.id}</span>
