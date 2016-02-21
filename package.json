@@ -38,13 +38,6 @@
   },
   "devDependencies": {
     "firebase-tools": "^2.2.1",
-    "sagui": "^2.7.1"
-  },
-  "sagui": {
-    "pages": [
-      "index",
-      "big-screen",
-      "player"
-    ]
+    "sagui": "^3.0.x"
   }
 }
