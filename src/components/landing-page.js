@@ -1,6 +1,8 @@
 import React from 'react'
 import { Footer, Hero, HorizontalSplit, Page, Section } from 'neal-react'
 
+import background from './landing-page.gif'
+
 const brandName = 'Giftellers'
 
 const businessAddress = (
@@ -13,12 +15,12 @@ const businessAddress = (
 export default (props) => {
   return (
     <Page>
-      <Hero backgroundImage='img/hero-bg-01.jpg'
+      <Hero backgroundImage={background}
         className='text-xs-center'>
         <h1 className='display-4'> Giftellers </h1>
         <p className='lead'>A couch card-game to be played with friends!</p>
          <p>
-          <a href='https://github.com/dennybritz/neal-react' className='btn btn-white'>
+          <a href='/big-screen.html' className='btn btn-white'>
             Start the game!
           </a>
         </p>
