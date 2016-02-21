@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import Avatar from './avatar'
 
 export default React.createClass({
   propTypes: {
@@ -15,12 +16,17 @@ export default React.createClass({
   },
 
   renderPlayers () {
-    const count = Object.keys(this.props.game.players || {}).length
-    const playersJoined = `${count} player${count > 1 ? 's' : ''} joined`
+    const players = this.props.game.players || {}
+    const playersJoined = Object
+      .keys(players)
+      .map(id => <Avatar key={id} player={players[id]} />)
+
     const waiting = 'waiting for players...'
 
     return (
-      <p className='status'>{count > 0 ? playersJoined : waiting}</p>
+      <p className='status'>
+        {playersJoined.length > 0 ? playersJoined : waiting}
+      </p>
     )
   }
 })
