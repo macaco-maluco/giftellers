@@ -49,7 +49,7 @@ export default React.createClass({
         }
         <div className='guidance'>
           <p>
-            Storyteller look at the cards in your "hand" and put together a sentence or phrase that might describe it
+            Storyteller, choose a cards from your "hand" and put together a sentence or phrase that might describe it
           </p>
           <p>
             please say it out loud
