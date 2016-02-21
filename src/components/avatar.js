@@ -13,7 +13,7 @@ export default React.createClass({
     return (
       <span className='avatar'
             style={{backgroundColor: this.props.player.color}}>
-        {this.props.player.id.substr(0, 3)}
+        &nbsp;
         {this.props.children}
       </span>
     )
