@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import RaisedButton from 'material-ui/lib/raised-button'
-import StoryTellerStar from 'material-ui/lib/svg-icons/action/stars'
+import StoryTellerStar from 'material-ui/lib/svg-icons/av/volume-up'
 
 import Avatar from './avatar'
 
@@ -31,7 +31,11 @@ export default React.createClass({
           }
         </Avatar>
         <span className='label'>
-          My color
+          {
+            this.props.player.isStoryTeller
+              ? 'Storyteller'
+              : 'Player'
+          }
         </span>
         {
           this.props.player.leader &&
