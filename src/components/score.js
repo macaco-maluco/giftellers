@@ -23,6 +23,9 @@ export default React.createClass({
 
     return (
       <div className='score'>
+        <p>
+          Score
+        </p>
         <div className='board'>
           <ul>
             <li className='score-number start'>
