@@ -35,7 +35,11 @@ export default class GameLogic {
               this.gameId = hashids.encode(snapshot.val())
               this.firebase
                 .child('games').child(this.gameId)
-                .set({ id: this.gameId, status: 'waiting', players: {} })
+                .set({
+                  id: this.gameId,
+                  createdAt: new Date().toISOString(),
+                  players: {}
+                })
 
               bindListeners.call(this)
               resolve(this.gameId)
