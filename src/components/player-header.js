@@ -2,6 +2,8 @@ import React, { PropTypes } from 'react'
 import RaisedButton from 'material-ui/lib/raised-button'
 import StoryTellerStar from 'material-ui/lib/svg-icons/action/stars'
 
+import Avatar from './avatar'
+
 const STORY_TELLER_STYLE = {
   position: 'absolute',
   fill: 'yellow',
@@ -20,16 +22,14 @@ export default React.createClass({
   render () {
     return (
       <div className='player-header'>
-        <span className='color'
-              style={{backgroundColor: this.props.player.color}}>
-          {this.props.player.id.substr(0, 3)}
+        <Avatar player={this.props.player}>
           {
             this.props.player.isStoryTeller &&
               <StoryTellerStar
                 className='storyTeller'
                 style={STORY_TELLER_STYLE}/>
           }
-        </span>
+        </Avatar>
         <span className='label'>
           My color
         </span>

@@ -2,18 +2,7 @@
   padding: 20px;
   color: white;
 
-  .color, .label {
+  .label {
     display: inline-block;
-  }
-
-  .color {
-    position: relative;
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 64px;
-    margin-right: 10px;
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.6);
   }
 }
