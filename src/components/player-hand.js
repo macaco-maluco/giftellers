@@ -18,7 +18,8 @@ export default React.createClass({
   propTypes: {
     hand: PropTypes.array,
     selectedCard: PropTypes.string,
-    onCardSelected: PropTypes.func
+    onCardSelected: PropTypes.func,
+    disabled: PropTypes.boolean
   },
 
   render () {
@@ -45,14 +46,17 @@ export default React.createClass({
             <CardMedia overlay={overlay}>
               <img src={card.url} />
             </CardMedia>
-            <CardActions style={{ padding: '8px 0 0 0' }}>
-              <RaisedButton
-                label='Select'
-                secondary
-                onClick={this.handleClick.bind(null, card.url)}
-                style={{ width: '100%' }}
-              />
-            </CardActions>
+            {
+              !this.props.disabled &&
+              <CardActions style={{ padding: '8px 0 0 0' }}>
+                <RaisedButton
+                  label='Select'
+                  secondary
+                  onClick={this.handleClick.bind(null, card.url)}
+                  style={{ width: '100%' }}
+                />
+              </CardActions>
+            }
           </Card>
         </div>
       )

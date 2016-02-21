@@ -43,8 +43,13 @@ export default React.createClass({
 
   renderGame (player, step, voteCards) {
     const roundStep = step % 4
+    const storyTellerSelectingCard = roundStep === 1
     const playersChoosingCards = roundStep === 2
     const playersVoting = roundStep === 3
+    const isHandVisible = (player.isStoryTeller && !playersChoosingCards && !playersVoting) ||
+                          (!player.isStoryTeller && !playersVoting)
+
+    const isSelectionEnabled = playersChoosingCards || player.isStoryTeller && storyTellerSelectingCard
 
     return (
       <div>
@@ -53,14 +58,13 @@ export default React.createClass({
           onClickNextStep={this.props.onClickNextStep}
         />
         {
-          (player.isStoryTeller && !playersChoosingCards && !playersVoting) ||
-          (!player.isStoryTeller && !playersVoting)
-           ? <PlayerHand
-                hand={player.hand || []}
-                selectedCard={player.selectedCard}
-                onCardSelected={this.props.onCardSelected}
-              />
-            : null
+          isHandVisible &&
+          <PlayerHand
+            hand={player.hand || []}
+            selectedCard={player.selectedCard}
+            disabled={!isSelectionEnabled}
+            onCardSelected={this.props.onCardSelected}
+          />
         }
         {
           !player.isStoryTeller &&
