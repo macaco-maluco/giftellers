@@ -26,7 +26,7 @@ export default React.createClass({
       case 2:
         return <span>Make your choice</span>
       case 3:
-        return <span>Votes</span>
+        return this.renderSelectedCards(players)
     }
   },
 
@@ -47,6 +47,28 @@ export default React.createClass({
         {
           storyTeller &&
             <Avatar player={storyTeller} />
+        }
+      </div>
+    )
+  },
+
+  renderSelectedCards (players) {
+    const cards = Object
+      .keys(players)
+      .map(id => players[id].selectedCard)
+      .sort()
+
+    return (
+      <div className='selected-cards'>
+        {
+          cards.map((cardUrl, i) => {
+            return (
+              <div key={cardUrl} className='card'>
+                <span className='number'>#{i}</span>
+                <img src={cardUrl} />
+              </div>
+            )
+          })
         }
       </div>
     )
