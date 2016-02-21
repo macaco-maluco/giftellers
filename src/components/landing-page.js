@@ -30,11 +30,11 @@ export default (props) => {
         <HorizontalSplit padding='md'>
           <div>
             <p className='lead'>Storytelling on GIFs</p>
-            <p>Inspired on <a href='https://en.wikipedia.org/wiki/Dixit_%28card_game%29'>Dixit</a>, Giftellers is a game with a deck of GIF cards, then players select cards that match a title suggested by the 'storyteller', and attempt to guess which card the 'storyteller' selected.</p>
+            <p>Inspired on <a href='https://en.wikipedia.org/wiki/Dixit_%28card_game%29'>Dixit</a>, <strong>Giftellers</strong> is a spin on the classic card game. Using a deck of GIF cards, players select cards that match a title suggested by the 'storyteller' then latter attempt to guess which card the 'storyteller' selected.</p>
           </div>
           <div>
             <p className='lead'>Couch game</p>
-            <p>Invite your frinds over and play a good old 'couch game'. Giftellers is to be played with a TV and smartphones.</p>
+            <p>Invite your friends over and play a good old 'couch game'. Giftellers is to be played with a TV and smartphones. There is even a <strong>game leader</strong> that controlls when the game advances.</p>
           </div>
           <div>
             <p className='lead'>This is real life</p>
@@ -46,16 +46,19 @@ export default (props) => {
       <Section heading='Start playing now!' className='gray'>
         <p>Giftellers is split in two parts:</p>
         <ul>
-          <li>Big screen</li>
-          <li>Player remote</li>
+          <li><strong>Big screen</strong> acts as the "table", where all the "cards" will be laid;</li>
+          <li><strong>Player remote</strong> are separated "card hands" that each player needs to have open on their smartphones. One of the remotes will also act as the <strong>game leader</strong> controlling the advancement of the game.</li>
         </ul>
 
-        <p>You will need both open on different screens and at leats 3 people to be able to play.</p>
+        <p>You will need both applications open on different screens and at leats 3 people to be able to play.</p>
         <p>
-          <a href='/big-screen.html' className='btn btn-primary btn-ghost' data-toggle='modal' data-target='#signup-modal'>Big screen</a>
+          The game is made to be <strong>controlled manually</strong>. There is a leader per match that controlls when the game can move to a next step. The match leader is the first player to join a given game.
         </p>
         <p>
-          <a href='/player.html' className='btn btn-primary btn-ghost' data-toggle='modal' data-target='#signup-modal'>Player remote</a>
+          <a href='/big-screen.html' className='btn btn-primary btn-ghost' data-toggle='modal' data-target='#signup-modal'>Start new game on a Big Screen</a>
+        </p>
+        <p>
+          <a href='/player.html' className='btn btn-primary btn-ghost' data-toggle='modal' data-target='#signup-modal'>Join an existing game via the Player Remote</a>
         </p>
       </Section>
 
