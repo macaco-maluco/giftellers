@@ -1,8 +1,11 @@
 import 'babel-core/browser-polyfill'
 
-export default function calculateScore ({ shuffledVotingCards, players }) {
+export default function calculateScore (game) {
+  const { shuffledVotingCards, players } = game
   const playersArray = Object.keys(players).map(id => players[id])
   const storyTeller = playersArray.find(player => player.isStoryTeller)
+
+  playersArray.forEach(player => player.score = player.score || 0)
 
   shuffledVotingCards.forEach((card, index) => {
     const voters = playersArray
@@ -24,5 +27,5 @@ export default function calculateScore ({ shuffledVotingCards, players }) {
     }
   })
 
-  return players
+  return game
 }

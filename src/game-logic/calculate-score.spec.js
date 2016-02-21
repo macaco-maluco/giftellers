@@ -30,68 +30,63 @@ describe('calculate score', () => {
           'player-1': {
             id: 'player-1',
             selectedCard: 'card-1',
-            isStoryTeller: true,
-            score: 0
+            isStoryTeller: true
           },
 
           // correct guess
           'player-2': {
             id: 'player-2',
             selectedCard: 'card-2',
-            votedCardIndex: 3,
-            score: 0
+            votedCardIndex: 3
           },
 
           // voted on self
           'player-3': {
             id: 'player-3',
             selectedCard: 'card-3',
-            votedCardIndex: 2,
-            score: 0
+            votedCardIndex: 2
           },
 
           // voted on player-3 card
           'player-4': {
             id: 'player-4',
             selectedCard: 'card-4',
-            votedCardIndex: 2,
-            score: 0
+            votedCardIndex: 2
           },
 
           // voter on self
           'player-5': {
             id: 'player-5',
             selectedCard: 'card-5',
-            votedCardIndex: 0,
-            score: 0
+            votedCardIndex: 0
           }
         }
       }
     })
 
     it('should score 3 points to the story teller for each correct player guess', () => {
-      const score = calculateScore(game)
-      expect(score['player-1'].score).toEqual(3)
+      const updatedGame = calculateScore(game)
+      expect(updatedGame.players['player-1'].score).toEqual(3)
     })
 
     it('should score 3 points to the player guessed correctly', () => {
-      const score = calculateScore(game)
-      expect(score['player-2'].score).toEqual(3)
+      const updatedGame = calculateScore(game)
+      expect(updatedGame.players['player-2'].score).toEqual(3)
     })
 
     it('should score 1 points to the player that received a vote from another player', () => {
-      const score = calculateScore(game)
-      expect(score['player-3'].score).toEqual(1)
+      const updatedGame = calculateScore(game)
+      expect(updatedGame.players['player-3'].score).toEqual(1)
     })
 
     it('should score 0 points to the player that guessed incorrectly', () => {
-      const score = calculateScore(game)
-      expect(score['player-4'].score).toEqual(0)
+      const updatedGame = calculateScore(game)
+      expect(updatedGame.players['player-4'].score).toEqual(0)
     })
 
     it('should score 0 points to the player that voted on himself', () => {
-      const score = calculateScore(game)
-      expect(score['player-5'].score).toEqual(0)
+      const updatedGame = calculateScore(game)
+      expect(updatedGame.players['player-5'].score).toEqual(0)
     })
   })
 })
