@@ -61,13 +61,5 @@ export default React.createClass({
         </div>
       )
     })
-  },
-
-  next: function () {
-    this.refs.reactSwipe.swipe.next()
-  },
-
-  prev: function () {
-    this.refs.reactSwipe.swipe.prev()
   }
 })
