@@ -42,11 +42,22 @@ export default React.createClass({
 
     return (
       <div className='story-teller'>
-        <h1>Waiting for:</h1>
+        <h1>Storyteller</h1>
         {
           storyTeller &&
             <Avatar player={storyTeller} />
         }
+        <div className='guidance'>
+          <p>
+            Storyteller look at the cards in your "hand" and put together a sentence or phrase that might describe it
+          </p>
+          <p>
+            please say it out loud
+          </p>
+          <p>
+            (without showing the card to the other players)
+          </p>
+        </div>
       </div>
     )
   },
