@@ -4,6 +4,8 @@ import gifs from '../data/gif-season-1'
 import colors from '../data/colors-season-1'
 import shuffle from 'lodash/shuffle'
 
+import calculateScore from './calculate-score'
+
 const HAND_SIZE = 5
 
 export default class GameLogic {
@@ -107,15 +109,50 @@ function onNextGameStep (snapshot) {
 
   switch (step % 4) {
     case 0:
-      return step !== 0 && calculateScore.call(this)
+      return step !== 0 && updateScore.call(this)
 
     case 1:
       return chooseNextStoryTellerIndex.call(this)
+
+    case 3:
+      return shuffleVotingCards.call(this)
   }
 }
 
-function calculateScore () {
-  // body...
+function shuffleVotingCards () {
+  this.firebase
+    .child(`games/${this.gameId}/players`)
+    .on('value', snapshot => {
+      const players = snapshot.val()
+
+      const shuffledVotingCards = shuffle(
+        Object
+          .keys(players)
+          .map(id => players[id].selectedCard)
+      )
+
+      this.firebase
+        .child(`games/${this.gameId}/shuffledVotingCards`)
+        .set(shuffledVotingCards)
+    })
+}
+
+function updateScore () {
+  this.firebase
+    .child(`games/${this.gameId}`)
+    .on('value', snapshot => {
+      const game = snapshot.val()
+
+      const gameWithScore = calculateScore(game)
+
+      this.firebase
+        .child(`games/${this.gameId}/players`)
+        .set(gameWithScore.players)
+
+      this.firebase
+        .child(`games/${this.gameId}/shuffledVotingCards`)
+        .set([])
+    })
 }
 
 function chooseNextStoryTellerIndex () {

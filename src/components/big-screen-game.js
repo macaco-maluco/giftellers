@@ -29,7 +29,7 @@ export default React.createClass({
       case 2:
         return <span>Make your choice</span>
       case 3:
-        return this.renderSelectedCards(players)
+        return this.renderSelectedCards(this.props.shuffledVotingCards)
     }
   },
 
@@ -51,12 +51,7 @@ export default React.createClass({
     )
   },
 
-  renderSelectedCards (players) {
-    const cards = Object
-      .keys(players)
-      .map(id => players[id].selectedCard)
-      .sort()
-
+  renderSelectedCards (cards) {
     return (
       <GridList className='selected-cards' cols={4} cellHeight={200}>
         {
