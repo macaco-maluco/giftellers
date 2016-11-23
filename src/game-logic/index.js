@@ -1,7 +1,7 @@
 import uuid from 'uuid'
 import Hashids from 'hashids'
-import gifs from '../data/gif-season-1'
-import colors from '../data/colors-season-1'
+import gifs from '../data/gif-season-1.json'
+import colors from '../data/colors-season-1.json'
 import shuffle from 'lodash/shuffle'
 
 import calculateScore from './calculate-score'
