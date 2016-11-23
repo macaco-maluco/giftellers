@@ -14,8 +14,8 @@ export default React.createClass({
             You will need 3 or more players. Get ready on a couch, fire up your smartphone and access:
           </p>
           <p>
-            <a href='http://bit.ly/giftellersme'>
-              http://bit.ly/giftellersme
+            <a href='http://giftellers.macacomaluco.space/player.html'>
+              http://giftellers.macacomaluco.space/player.html
             </a>
           </p>
         </div>
